@@ -93,7 +93,7 @@ template<class T,T P,int D>istream&operator>>(istream&s,ModularInteger<T,P,D>&a)
 }
 template<class T,T P,int D>ostream&operator<<(ostream&s,ModularInteger<T,P,D>a){
     s<<a.v;
-    if(a.v>=P||a.v<0)
+    if(a.v<0||a.v>=P)
         a.v%=P;
     return s;
 }
