@@ -5,7 +5,7 @@ template<class T,T P,int D=0>struct ModularInteger{
         if(v<0||v>=P)
             v=(v%P+P)%P;
     }
-    ModularInteger<T,P,D>operator=(T a){
+    ModularInteger<T,P,D>&operator=(T a){
         v=a;
         if(v<0||v>=P)
             v%=P;
@@ -15,20 +15,16 @@ template<class T,T P,int D=0>struct ModularInteger{
         return v?P-v:0;
     }
     ModularInteger<T,P,D>&operator+=(ModularInteger<T,P,D>a){
-        *this=*this+a;
-        return*this;
+        return*this=*this+a;
     }
     ModularInteger<T,P,D>&operator-=(ModularInteger<T,P,D>a){
-        *this=*this-a;
-        return*this;
+        return*this=*this-a;
     }
     ModularInteger<T,P,D>&operator*=(ModularInteger<T,P,D>a){
-        *this=*this*a;
-        return*this;
+        return*this=*this*a;
     }
     ModularInteger<T,P,D>&operator/=(ModularInteger<T,P,D>a){
-        *this=*this/a;
-        return*this;
+        return*this=*this/a;
     }
     T v;
 };
