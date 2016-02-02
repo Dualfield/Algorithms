@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 template<class T,T P>struct ModularInteger{
-    ModularInteger(T t=0):v(t){
+    ModularInteger(T t=0):
+        v(t){
         if(v<0||v>=P)
             v=(v%P+P)%P;
     }
