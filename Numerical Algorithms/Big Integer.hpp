@@ -208,3 +208,8 @@ BigInteger gcd(BigInteger a,BigInteger b){
         return r*a;
     return r*b;
 }
+template<class T>T read(){
+    T a;
+    cin>>a;
+    return a;
+}
