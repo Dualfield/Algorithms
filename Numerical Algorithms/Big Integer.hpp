@@ -1,11 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 struct BigInteger operator+(BigInteger a,BigInteger b);
+BigInteger operator+(BigInteger a,int b);
 BigInteger operator-(BigInteger a,BigInteger b);
+BigInteger operator*(BigInteger a,BigInteger b);
 BigInteger operator*(BigInteger a,BigInteger b);
 BigInteger operator/(BigInteger a,BigInteger b);
 BigInteger operator%(BigInteger a,BigInteger b);
+BigInteger operator%(BigInteger a,int b);
+bool operator!=(BigInteger a,int b);
 struct BigInteger{
+    operator bool(){
+        return *this!=0;
+    }
     BigInteger(long long a=0){
         if(a<0){
             s=-1;
@@ -43,6 +50,9 @@ struct BigInteger{
     }
     BigInteger&operator%=(BigInteger a){
         return*this=*this%a;
+    }
+    BigInteger&operator++(){
+        return*this=*this+1;
     }
     int s;
     vector<int>d;
@@ -99,6 +109,18 @@ BigInteger operator-(BigInteger a){
     if(a.d.size()==1&&a.d[0]==0)
         a.s=1;
     return a;
+}
+BigInteger operator+(BigInteger a,int b){
+    return a+BigInteger(b);
+}
+BigInteger operator*(BigInteger a,int b){
+    return a*BigInteger(b);
+}
+BigInteger operator%(BigInteger a,int b){
+    return a%BigInteger(b);
+}
+bool operator!=(BigInteger a,int b){
+    return a!=BigInteger(b);
 }
 BigInteger operator+(BigInteger a,BigInteger b){
     if(a.s*b.s!=-1){
@@ -207,9 +229,4 @@ BigInteger gcd(BigInteger a,BigInteger b){
     if(a!=0)
         return r*a;
     return r*b;
-}
-template<class T>T read(){
-    T a;
-    cin>>a;
-    return a;
 }
