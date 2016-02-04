@@ -37,3 +37,9 @@ int letter_sum(string a){
         r+=letter_order(a[i]);
     return r;
 }
+bool is_palindromic_string(string a){
+    for(int i=0;i<a.size();++i)
+        if(a[i]!=a[a.size()-i-1])
+            return false;
+    return true;
+}

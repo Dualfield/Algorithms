@@ -9,6 +9,7 @@ Integer operator/(Integer a,Integer b);
 Integer operator%(Integer a,Integer b);
 Integer operator%(Integer a,int b);
 bool operator!=(Integer a,int b);
+bool operator<=(Integer a,int b);
 struct Integer{
     operator bool(){
         return *this!=0;
@@ -143,6 +144,9 @@ Integer operator%(Integer a,int b){
 }
 bool operator!=(Integer a,int b){
     return a!=Integer(b);
+}
+bool operator<=(Integer a,int b){
+    return a<=Integer(b);
 }
 Integer operator+(Integer a,Integer b){
     if(a.s*b.s!=-1){

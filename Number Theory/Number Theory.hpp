@@ -66,7 +66,7 @@ template<class T>bool is_prime(T a){
             return false;
     return true;
 }
-template<class T>bool is_palindromic(T a){
+template<class T>bool is_palindromic_number(T a){
     string b;
     stringstream s;
     s<<a;
@@ -176,5 +176,81 @@ vector<int>prime(int n){
 template<class T>T digit_sum(T a){
     T r=0;
     for(;a;r+=a%10,a/=10);
+    return r;
+}
+template<class T>T digit_power_sum(T a,T b){
+    T r=0;
+    for(;a;r+=pow(a%10,b),a/=10);
+    return r;
+}
+template<class T>T divisor_sum(T a){
+    vector<T>d=divisor(a);
+    T s=0;
+    for(int i=0;i<d.size();++i)
+        s+=d[i];
+    return s;
+}
+template<class T>bool is_perfect(T a){
+    return a*2==divisor_sum(a);
+}
+template<class T>bool is_deficient(T a){
+    return a*2>divisor_sum(a);
+}
+template<class T>bool is_abundant(T a){
+    return a*2<divisor_sum(a);
+}
+template<class T>set<int>digit_set(T a){
+    set<int>r;
+    for(;a;r.insert(a%10),a/=10);
+    return r;
+}
+template<class T>int digit_count(T a){
+    int r=0;
+    if(!a)
+        ++r;
+    for(;a;++r,a/=10);
+    return r;
+}
+template<class T>T digit_factorial_sum(T a){
+    T r=0;
+    for(;a;r+=factorial(a%10),a/=10);
+    return r;
+}
+template<class T>bool is_pandigital(T a){
+    return digit_count(a)==digit_set(a).size();
+}
+template<class T>bool has_zero(T a){
+    if(!a)
+        return true;
+    while(a){
+        if(a%10==0)
+            return true;
+        a/=10;
+    }
+    return false;
+}
+template<class T>T right_circular_shift(T a){
+    stringstream ss;
+    ss<<a;
+    string t;
+    ss>>t;
+    t=t.substr(t.size()-1,1)+t.substr(0,t.size()-1);
+    ss<<t;
+    ss>>a;
+    return a;
+}
+template<class T>bool is_circular_prime(T a){
+    for(int i=digit_count(a);i;--i,a=right_circular_shift(a))
+        if(!is_prime(a))
+            return false;
+    return true;
+}
+template<class T>string to_binary(T a){
+    string r;
+    while(a){
+        r.push_back(a%2+'0');
+        a/=2;
+    }
+    reverse(r.begin(),r.end());
     return r;
 }
