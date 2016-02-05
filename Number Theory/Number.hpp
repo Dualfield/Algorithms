@@ -58,7 +58,7 @@ template<class T>vector<pair<T,T> >factor(T a){
         t.push_back(make_pair(b,T(1)));
     return t;
 }
-template<class T>bool is_prime(T a){
+template<class T>bool is_prime_number(T a){
     if(a<2)
         return false;
     for(T d=2;d*d<=a;++d)
@@ -77,10 +77,11 @@ template<class T>bool is_palindromic_number(T a){
     return true;
 }
 template<class T>T pow(T a,T b){
-    T r=1;
-    for(T i=1;i<=b;++i)
-        r*=a;
-    return r;
+    T s=1;
+    for(;b;b/=2,a*=a)
+        if(b%2)
+            s*=a;
+    return s;
 }
 template<class T>T power_sum(T n,T k){
     T r=0;
@@ -94,10 +95,9 @@ template<class T>T sqr(T a){
 int nth_prime(int n){
     int r=1;
     for(int i=1;i<=n;++i)
-        for(++r;!is_prime(r);++r);
+        for(++r;!is_prime_number(r);++r);
     return r;
 }
-
 vector<vector<int> >pythagorean_triple(int n){
     vector<vector<int> >t;
     for(int i=1;i*i<=n;++i)
@@ -123,11 +123,20 @@ vector<vector<int> >primitive_pythagorean_triple(int n){
             }
     return t;
 }
-template<class T>nth_triangular(T n){
+template<class T>nth_triangular_number(T n){
     if(n%2==0)
         return n/2*(n+1);
     else
         return (n+1)/2*n;
+}
+template<class T>nth_pentagonal_number(T n){
+    if(n%2==0)
+        return n/2*(3*n-1);
+    else
+        return (3*n-1)/2*n;
+}
+template<class T>nth_hexagonal_number(T n){
+    return n*(2*n-1);
 }
 template<class T>vector<T>collatz_sequence(T a){
     vector<T>t;
@@ -204,6 +213,12 @@ template<class T>set<int>digit_set(T a){
     for(;a;r.insert(a%10),a/=10);
     return r;
 }
+
+template<class T>multiset<int>digit_multiset(T a){
+    multiset<int>r;
+    for(;a;r.insert(a%10),a/=10);
+    return r;
+}
 template<class T>int digit_count(T a){
     int r=0;
     if(!a)
@@ -216,7 +231,7 @@ template<class T>T digit_factorial_sum(T a){
     for(;a;r+=factorial(a%10),a/=10);
     return r;
 }
-template<class T>bool is_pandigital(T a){
+template<class T>bool has_distinct_digit(T a){
     return digit_count(a)==digit_set(a).size();
 }
 template<class T>bool has_zero(T a){
@@ -241,7 +256,7 @@ template<class T>T right_circular_shift(T a){
 }
 template<class T>bool is_circular_prime(T a){
     for(int i=digit_count(a);i;--i,a=right_circular_shift(a))
-        if(!is_prime(a))
+        if(!is_prime_number(a))
             return false;
     return true;
 }
@@ -253,4 +268,78 @@ template<class T>string to_binary(T a){
     }
     reverse(r.begin(),r.end());
     return r;
+}
+template<class T>T digit_reverse(T a){
+    stringstream ss;
+    ss<<a;
+    string t;
+    ss>>t;
+    reverse(t.begin(),t.end());
+    stringstream ss2;
+    ss2<<t;
+    ss2>>a;
+    return a;
+}
+template<class T>bool is_truncatable_prime(T a){
+    T b=digit_reverse(a);
+    while(a){
+        if(!is_prime_number(a))
+            return false;
+        a/=10;
+    }
+    a=b;
+    while(a){
+        if(!is_prime_number(digit_reverse(a)))
+            return false;
+        a/=10;
+    }
+    return true;
+}
+template<class T>bool is_triangle_number(T a){
+    if(a<1)
+        return false;
+    T l=1,r=1;
+    while(nth_triangular_number(r)<=a)
+        r*=2;
+    while(l+1<r){
+        T m=l+(r-l)/2;
+        if(nth_triangular_number(m)<=a)
+            l=m;
+        else
+            r=m;
+    }
+    return a==nth_triangular_number(l);
+}
+template<class T>bool is_pentagonal_number(T a){
+    if(a<1)
+        return false;
+    T l=1,r=1;
+    while(nth_pentagonal_number(r)<=a)
+        r*=2;
+    while(l+1<r){
+        T m=l+(r-l)/2;
+        if(nth_pentagonal_number(m)<=a)
+            l=m;
+        else
+            r=m;
+    }
+    return a==nth_pentagonal_number(l);
+}
+template<class T>bool is_hexagonal_number(T a){
+    if(a<1)
+        return false;
+    T l=1,r=1;
+    while(nth_hexagonal_number(r)<=a)
+        r*=2;
+    while(l+1<r){
+        T m=l+(r-l)/2;
+        if(nth_hexagonal_number(m)<=a)
+            l=m;
+        else
+            r=m;
+    }
+    return a==nth_hexagonal_number(l);
+}
+template<class T>bool is_square_number(T a){
+    return sqr(T(round(sqrt(a))))==a;
 }

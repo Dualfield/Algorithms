@@ -8,6 +8,7 @@ Integer operator*(Integer a,Integer b);
 Integer operator/(Integer a,Integer b);
 Integer operator%(Integer a,Integer b);
 Integer operator%(Integer a,int b);
+Integer operator%(Integer a,long long b);
 bool operator!=(Integer a,int b);
 bool operator<=(Integer a,int b);
 struct Integer{
@@ -140,6 +141,9 @@ Integer operator*(Integer a,int b){
     return a*Integer(b);
 }
 Integer operator%(Integer a,int b){
+    return a%Integer(b);
+}
+Integer operator%(Integer a,long long b){
     return a%Integer(b);
 }
 bool operator!=(Integer a,int b){

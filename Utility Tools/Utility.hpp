@@ -3,11 +3,17 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 #define lp(i,a,b)for(auto i=a;i<=b;++i)
-void read(string a){
+void set_read(string a){
     freopen(a.c_str(),"r",stdin);
 }
-void write(string a){
+void set_write(string a){
     freopen(a.c_str(),"w",stdout);
+}
+template<class T>void write(T a){
+    cout<<a;
+}
+template<class T>void writeln(T a){
+    cout<<a<<endl;
 }
 template<class T>T read(){
     T a;
@@ -107,8 +113,55 @@ template<class T>vector<T>permutation(T a){
     }
     return r;
 }
+template<class T>vector<T>permutation(T a,int b){
+    sort(a.begin(),a.end());
+    vector<T>r;
+    for(int i=0;i<(1<<a.size());++i){
+        T t;
+        for(int j=0;j<a.size();++j)
+            if((i>>j)&1)
+                t.push_back(a[j]);
+        if(t.size()!=b)
+            continue;
+        do{
+            r.push_back(t);
+        }while(next_permutation(t.begin(),t.end()));
+    }
+    return r;
+}
 template<class T>set<T>operator+(set<T>a,set<T>b){
     for(typename set<T>::iterator i=a.begin();i!=a.end();++i)
         b.insert(*i);
     return b;
+}
+template<class T>vector<T>operator+(vector<T>a,vector<T>b){
+    for(int i=0;i<b.size();++i)
+        a.push_back(b[i]);
+    return a;
+}
+template<class T>set<T>operator&(set<T>a,set<T>b){
+    set<T>c;
+    for(typename set<T>::iterator i=a.begin();i!=a.end();++i)
+        if(b.count(*i))
+            c.insert(*i);
+    return c;
+}
+string str(int a){
+    return convert<int,string>(a);
+}
+string str(ll a){
+    return convert<ll,string>(a);
+}
+int to_int(string a){
+    return convert<string,int>(a);
+}
+ll to_ll(string a){
+    return convert<string,ll>(a);
+}
+template<class T,class F>vector<T>delete_if(vector<T>a,F b){
+    vector<T>c;
+    for(int i=0;i<a.size();++i)
+        if(!b(a[i]))
+            c.push_back(a[i]);
+    return c;
 }
