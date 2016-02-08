@@ -99,7 +99,7 @@ for i in os.listdir():
         for j in os.listdir():
             text+='\
 \\addtocontents{toc}{}\n\
-\\section{'+j.split('.')[0]+'}\n\\noindent '+j+'\n\
+\\section{'+j.split('.')[0]+'}\n\\noindent '+j+' ('+str(os.path.getsize(j))+' bytes)\n\
 \\begin{lstlisting}[language=C++]\n'
             text+=codecs.open(j,'r','utf-8').read()
             text+='\
