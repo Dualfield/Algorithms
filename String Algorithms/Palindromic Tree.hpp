@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-template<class T>struct PalindromicAutomaton{
+template<class T>struct PalindromicTree{
     struct node{
         node(int m,node*f,int l):
             nxt(m),fail(f),len(l){
@@ -13,7 +13,7 @@ template<class T>struct PalindromicAutomaton{
     int m;
     vector<int>str;
     vector<node*>all;
-    PalindromicAutomaton(int _m):
+    PalindromicTree(int _m):
         m(_m){
         node*n0=new node(m,0,-2),*n1=new node(m,n0,-1),*n2=new node(m,n1,0);
         all.push_back(n0);
@@ -22,7 +22,7 @@ template<class T>struct PalindromicAutomaton{
         fill(n0->nxt.begin(),n0->nxt.end(),n2);
         root=n1;
     }
-    ~PalindromicAutomaton(){
+    ~PalindromicTree(){
         for(int i=0;i<all.size();++i)
             delete all[i];
     }

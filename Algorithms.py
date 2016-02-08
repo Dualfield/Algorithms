@@ -18,8 +18,8 @@ text='\
 \\setmainfont{Gentium Book Basic}\n\
 \\lstdefinelanguage{Vim}{keywords={let,set}}\n\
 \\lstset{\n\
-    frame=shadowbox,\n\
-    framerule=0.5pt,\n\
+    frame=single,\n\
+    framerule=0.75pt,\n\
     stringstyle=\\color{javared},\n\
     commentstyle=\\color{javagreen},\n\
     breaklines=true,\n\
