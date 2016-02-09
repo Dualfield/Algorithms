@@ -71,7 +71,7 @@ template<class T,T P>ModularInteger<T,P>operator-(ModularInteger<T,P>a,ModularIn
 }
 template<class T,T P>ModularInteger<T,P>operator*(ModularInteger<T,P>a,ModularInteger<T,P>b){
     if(typeid(T)!=typeid(int))
-        return ModularInteger<T,P>((a.v*b.v-(long long )(((long double)a.v*b.v+0.5)/P)*P+P)%P);
+        return ModularInteger<T,P>((a.v*b.v-(long long)(((long double)a.v*b.v+0.5)/P)*P+P)%P);
     else
         return ModularInteger<T,P>((long long)a.v*b.v%P);
 }

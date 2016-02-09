@@ -101,10 +101,17 @@ for i in os.listdir():
             t2=t.split('\n')
             while len(t2)!=0 and len(t2[-1])==0:
                 t2=t2[0:-1]
+            lan=''
+            if j.split('.')[1]=='hpp':
+                lan='[language=C++]'
+            elif j.split('.')[1]=='txt':
+                lan='[breakindent=0pt,numbers=none,basicstyle=\\consolas\\bfseries,mathescape=true]'
+            elif j.split('.')[1]=='bat':
+                lan='[language=command.com]'
             text+='\
 \\addtocontents{toc}{}\n\
 \\section{'+j.split('.')[0]+'}\n\\noindent '+j+' ('+str(os.path.getsize(j))+' bytes, '+str(len(t2))+' lines)\n\
-\\begin{lstlisting}[language=C++]\n'
+\\begin{lstlisting}'+lan+'\n'
             text+=t
             text+='\
 \\end{lstlisting}\n'
