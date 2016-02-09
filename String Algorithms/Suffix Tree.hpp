@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-template<class T=char,int N=int(1e5),int M=27,int D='a'-1>struct SuffixTree{
+template<class T=char,int N=int(1e5),int M=27,T D='a'-1>struct SuffixTree{
     struct node;
     struct edge{
         edge():
