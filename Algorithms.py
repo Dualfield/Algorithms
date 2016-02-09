@@ -97,11 +97,15 @@ for i in os.listdir():
 \\newpage\n'
         os.chdir(i)
         for j in os.listdir():
+            t=codecs.open(j,'r','utf-8').read()
+            t2=t.split('\n')
+            while len(t2)!=0 and len(t2[-1])==0:
+                t2=t2[0:-1]
             text+='\
 \\addtocontents{toc}{}\n\
-\\section{'+j.split('.')[0]+'}\n\\noindent '+j+' ('+str(os.path.getsize(j))+' bytes)\n\
+\\section{'+j.split('.')[0]+'}\n\\noindent '+j+' ('+str(os.path.getsize(j))+' bytes, '+str(len(t2))+' lines)\n\
 \\begin{lstlisting}[language=C++]\n'
-            text+=codecs.open(j,'r','utf-8').read()
+            text+=t
             text+='\
 \\end{lstlisting}\n'
         os.chdir(os.pardir)
