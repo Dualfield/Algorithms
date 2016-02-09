@@ -8,12 +8,12 @@ template<class T>struct MaximumFlow{
             v(_v),c(_c),l(_c){
         }
     };
+    int n,src,snk;
     vector<edge>egs;
     vector<vector<int> >bge;
     vector<int>hei,gap,cur,frm;
-    int n,src,snk;
-    MaximumFlow(int _n,int _source,int _sink):
-        bge(_n),hei(_n,_n),gap(_n+1),n(_n),cur(_n),frm(_n),src(_source-1),snk(_sink-1){
+    MaximumFlow(int _n,int _src,int _snk):
+        bge(_n),hei(_n,_n),gap(_n+1),n(_n),cur(_n),frm(_n),src(_src-1),snk(_snk-1){
     }
     void lab(){
         hei[snk]=0;
@@ -46,8 +46,7 @@ template<class T>struct MaximumFlow{
     T run(){
         lab();
         T r=0;
-        int u=src;
-        while(hei[src]!=n){
+        for(int u=src;hei[src]!=n;){
             if(u==snk)
                 r+=aug(),u=src;
             int f=0;
