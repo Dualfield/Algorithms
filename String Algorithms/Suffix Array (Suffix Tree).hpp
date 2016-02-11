@@ -23,7 +23,7 @@ template<class T,int N,int M,T D>struct SuffixTree{
             s(0),c({0}){
         }
         node*s;
-        edge*c[M];
+        edge*c[M+1];
     }pn[2*N+1],*np=pn;
     SuffixTree():
         root(np++),ct(0){
@@ -52,7 +52,27 @@ template<class T,int N,int M,T D>struct SuffixTree{
         extend(ae->l);
         return false;
     }
-    void insert(T*s,int n){
+    void dfs(node*u,int d){
+        int t=0,s=0;
+        for(int i=0;i<M+1;++i)
+            if(u->c[i]){
+                if(!t)
+                    t=1;
+                else if(!s){
+                    s=1;
+                    *sp++=d;
+                }
+                dfs(u->c[i]->t,d+u->c[i]->length());
+            }
+        if(s)
+            --sp;
+        else if(!t&&sp!=sk){
+            *hp++=*(sp-1);
+            *fp++=ct-d+1;
+        }
+    }
+    void build(T*s,int n){
+        s[n++]=M+D;
         ct+=n;
         an=root;
         ae=al=0;
@@ -87,8 +107,9 @@ template<class T,int N,int M,T D>struct SuffixTree{
                 }else
                     ae=0;
             }
+        dfs(root,0);
     }
     edge*ae;
-    int al,ct;
     node*root,*an,*pr;
+    int al,ct,sk[N],*sp=sk,ht[N],*hp=ht,sa[N],*fp=sa;
 };
