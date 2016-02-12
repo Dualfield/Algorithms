@@ -1,3 +1,73 @@
+/*
+\subsection*{Description}
+
+Use a factor oracle to construct a suffix array. It is theoretically slow, but usually fast in practice. Object of it should be static since it has large data members.
+
+
+\subsection*{Methods}
+
+\begin{tabu*} to \textwidth {|X|X|}
+\hline
+\multicolumn{2}{|l|}{\bfseries{template<class T,int N,int M,T D>SuffixArray<T,N,M,D>::SuffixArray();}}\\
+\hline
+\bfseries{Parameters} & \bfseries{Description}\\
+\hline
+T & type of character, usually char\\
+\hline
+N & maximum length of input string\\
+\hline
+M & size of alphabet\\
+\hline
+D & offset of alphabet, use 'a' for lowercase letters\\
+\hline
+Time complexity & $\Theta(1)$\\
+\hline
+Space complexity & $\Theta((M+13)N)$\\
+\hline
+Return value & none\\
+\hline
+\multicolumn{2}{|l|}{\bfseries{template<class T,int N,int M,T D>void SuffixArray<T,N,M,D>::build(T*\_s,int \_n);}}\\
+\hline
+\bfseries{Parameters} & \bfseries{Description}\\
+\hline
+\_s & string from which to build a suffix array, indexed from zero\\
+\hline
+\_n & length of \_s\\
+\hline
+Time complexity & $O((M+n)n)$\\
+\hline
+Space complexity & $\Theta(n)$\\
+\hline
+Return value & none\\
+\hline
+\end{tabu*}
+
+
+\subsection*{Fields}
+
+\begin{tabu} to \textwidth {|X|X|}
+\hline
+\bfseries{Name} & \bfseries{Description}\\
+\hline
+{sa} & suffix array, indexed from one\\
+\hline
+{ht} & height array, indexed from one\\
+\hline
+\end{tabu}
+
+\subsection*{Performance}
+
+\begin{tabu} to \textwidth {|X|X|X|X|}
+\hline
+\bfseries{Problem} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
+\hline
+{Tyvj P1860} & 1247 ms & 33012kB & 2016-02-12\\
+\hline
+\end{tabu}
+
+
+\subsection*{Code}
+*/
 #include<bits/stdc++.h>
 using namespace std;
 template<class T,int N,int M,T D>struct SuffixArray{
@@ -12,8 +82,6 @@ template<class T,int N,int M,T D>struct SuffixArray{
         for(i=m;i>=1;b[c[val(a[i],d)]--]=a[i],--i);
     }
     void sort(int a,int b,int d,int l){
-        if(d>=200)
-            return;
         sort(z+a-1,t,b-a+1,d);
         memcpy(z+a,t+1,(b-a+1)*4);
         for(i=a,j;i<=b;i=j+1){
