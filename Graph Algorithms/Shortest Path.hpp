@@ -38,7 +38,8 @@ template<class T>struct ShortestPath{
                 int v=to[u][i];
                 T w=we[u][i];
                 if(upd(di[v],di[u],w))
-                    mod(v,di[v]);}
+                    mod(v,di[v]);
+            }
         return di;
     }
 };

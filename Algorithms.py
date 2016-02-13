@@ -3,6 +3,7 @@ import re
 import codecs
 text='\
 \\documentclass{book}\n\
+\\usepackage[encapsulated]{CJK}\n\
 \\usepackage{tabu}\n\
 \\usepackage{booktabs}\n\
 \\usepackage{listings,array,varwidth}\n\
@@ -24,14 +25,14 @@ text='\
 \\lstset{\n\
     frame=top,frame=bottom,\n\
     framerule=0.75pt,\n\
-    stringstyle=\\color{javared},\n\
-    commentstyle=\\color{javagreen},\n\
+    stringstyle=\\color{black},\n\
+    commentstyle=\\color{black},\n\
     breaklines=true,\n\
-    numbers=left,\n\
+    numbers=none,\n\
     columns=fullflexible,\n\
     showstringspaces=false,\n\
     aboveskip=1em,\n\
-    keywordstyle=\\color{javapurple}\\bfseries,\n\
+    keywordstyle=\\color{black}\\bfseries,\n\
     basicstyle=\\consolas,\n\
     rulecolor=\\color{black}}\n\
 \\DeclareCaptionFormat{listing}{\\rule{\\dimexpr\\textwidth+15pt\\relax}{0.4pt}\\vskip1pt#1#2#3}\n\
@@ -40,6 +41,8 @@ text='\
 \\usepackage[colorlinks,linkcolor=black]{hyperref}\n\
 \\usepackage{bookmark}\n\
 \\usepackage{emptypage}\n\
+\\usepackage{xeCJK}\n\
+\\setCJKmainfont{SimSun}\n\
 \\makeatletter\n\
 \\newcommand{\\lst@invisiblevisiblespace}{%\n\
     \\textcolor{white}{\\lst@bkgcolor{\\lst@visiblespace}}}%\n\
@@ -125,7 +128,7 @@ for i in os.listdir():
                 print(j)
                 l=0
                 while t[l]!='*':
-                    print(t[l])
+                    #print(t[l])
                     l+=1
                 r=l+1
                 while t[r]!='*' or t[r+1]!='/':

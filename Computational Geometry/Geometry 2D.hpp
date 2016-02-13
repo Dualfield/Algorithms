@@ -156,9 +156,4 @@ namespace Geometry2D{
     template<class T>bool col(const Point<T>&a,const Point<T>&b,const Point<T>&c){
         return !cmp(det(a-c,b-c),T(0));
     }
-    template<class T>T read(){
-        T t;
-        cin>>t;
-        return t;
-    }
 }

@@ -1,7 +1,7 @@
 /*
 \subsection*{Description}
 
-Use a factor oracle to construct a suffix array. It is theoretically slow, but usually fast in practice. Object of it should be static since it has large data members.
+Use a factor oracle to construct a suffix array and it's height array from a given string. It is theoretically slow, but usually fast in practice. Object of it should be static since it has large data members.
 
 
 \subsection*{Methods}
@@ -9,6 +9,8 @@ Use a factor oracle to construct a suffix array. It is theoretically slow, but u
 \begin{tabu*} to \textwidth {|X|X|}
 \hline
 \multicolumn{2}{|l|}{\bfseries{template<class T,int N,int M,T D>SuffixArray<T,N,M,D>::SuffixArray();}}\\
+\hline
+\bfseries{Description} & construct an object of SuffixArray\\
 \hline
 \bfseries{Parameters} & \bfseries{Description}\\
 \hline
@@ -20,25 +22,31 @@ M & size of alphabet\\
 \hline
 D & offset of alphabet, use 'a' for lowercase letters\\
 \hline
-Time complexity & $\Theta(1)$\\
+\bfseries{Time complexity} & $\Theta(1)$\\
 \hline
-Space complexity & $\Theta((M+13)N)$\\
+\bfseries{Space complexity} & $\Theta((M+13)N)$\\
 \hline
-Return value & none\\
+\bfseries{Return value} & an object of SuffixArray\\
 \hline
-\multicolumn{2}{|l|}{\bfseries{template<class T,int N,int M,T D>void SuffixArray<T,N,M,D>::build(T*\_s,int \_n);}}\\
+\end{tabu*}
+
+\begin{tabu*} to \textwidth {|X|X|}
+\hline
+\multicolumn{2}{|l|}{\bfseries{template<class T,int N,int M,T D>void SuffixArray<T,N,M,D>::build(T*s,int n);}}\\
+\hline
+\bfseries{Description} & build suffix array and height array\\
 \hline
 \bfseries{Parameters} & \bfseries{Description}\\
 \hline
-\_s & string from which to build a suffix array, indexed from zero\\
+s & string from which to build a suffix array, indexed from zero\\
 \hline
-\_n & length of \_s\\
+n & length of s\\
 \hline
-Time complexity & $O((M+n)n)$\\
+\bfseries{Time complexity} & $O((M+n)n)$\\
 \hline
-Space complexity & $\Theta(n)$\\
+\bfseries{Space complexity} & $\Theta(n)$\\
 \hline
-Return value & none\\
+\bfseries{Return value} & none\\
 \hline
 \end{tabu*}
 
@@ -55,13 +63,27 @@ Return value & none\\
 \hline
 \end{tabu}
 
+
 \subsection*{Performance}
 
-\begin{tabu} to \textwidth {|X|X|X|X|}
+\begin{tabu} to \textwidth {|X|X|X|X|X|}
 \hline
-\bfseries{Problem} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
+\bfseries{Problem} & \bfseries{Constraints} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
 \hline
-{Tyvj P1860} & 1247 ms & 33012kB & 2016-02-12\\
+{Tyvj P1860} & $N=2\times 10^5, M=26$ & 1247 ms (10 cases) & 33012 kB & 2016-02-12\\
+\hline
+\end{tabu}
+
+
+\subsection*{References}
+
+\begin{tabu} to \textwidth {|X|X|}
+\hline
+\bfseries{Title} & \bfseries{Author}\\
+\hline
+{Factor oracle, Suffix oracle} & Cyril Allauzen, Maxime Crochemore, Mathieu Raffinot\\
+\hline
+{Computing repeated factors with a factor oracle} & Arnaud Lefebvre, Thierry Lecroq\\
 \hline
 \end{tabu}
 
