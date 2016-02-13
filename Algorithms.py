@@ -28,7 +28,8 @@ text='\
     stringstyle=\\color{black},\n\
     commentstyle=\\color{black},\n\
     breaklines=true,\n\
-    numbers=none,\n\
+    numbers=left,\n\
+    stepnumber=10,\n\
     columns=fullflexible,\n\
     showstringspaces=false,\n\
     aboveskip=1em,\n\
@@ -106,21 +107,26 @@ for i in os.listdir():
         os.chdir(i)
         for j in os.listdir():
             t=codecs.open(j,'r','utf-8').read()
-            if t.find('/*')==-1:
+            if j.split('.')[1]=='txt':
+                text+='\
+\\addtocontents{toc}{}\n\
+\\section{'+j.split('.')[0]+'}\n'
+                text+=t
+            elif t.find('/*')==-1 or j.split('.')[1]!='hpp':
                 t2=t.split('\n')
                 while len(t2)!=0 and len(t2[-1])==0:
                     t2=t2[0:-1]
                 lan=''
                 if j.split('.')[1]=='hpp':
-                    lan='[language=C++]'
+                    lan='[language=C++,'
                 elif j.split('.')[1]=='txt':
-                    lan='[breakindent=0pt,numbers=none,basicstyle=\\consolas\\bfseries,mathescape=true]'
+                    lan='[breakindent=0pt,numbers=none,basicstyle=\\consolas\\bfseries,mathescape=true,'
                 elif j.split('.')[1]=='bat':
-                    lan='[language=command.com]'
+                    lan='[language=command.com,'
                 text+='\
 \\addtocontents{toc}{}\n\
-\\section{'+j.split('.')[0]+'}\n\\noindent '+j+' ('+str(os.path.getsize(j))+' bytes, '+str(len(t2))+' lines)\n\
-\\begin{lstlisting}'+lan+'\n'
+\\section{'+j.split('.')[0]+'}\n'
+                text+='\\begin{lstlisting}'+lan+'title={'+j+' ('+str(len(t))+' bytes, '+str(len(t2))+' lines)}]\n'
                 text+=t
                 text+='\
 \\end{lstlisting}\n'
