@@ -3,6 +3,7 @@ import re
 import codecs
 text='\
 \\documentclass{book}\n\
+\\usepackage{commath}\n\
 \\usepackage[encapsulated]{CJK}\n\
 \\usepackage{tabu}\n\
 \\usepackage{booktabs}\n\
@@ -126,6 +127,7 @@ for i in os.listdir():
                 text+='\
 \\addtocontents{toc}{}\n\
 \\section{'+j.split('.')[0]+'}\n'
+                text+='warning: old style will be replaced ... see Suffix Array (DC3) for new style'
                 text+='\\begin{lstlisting}'+lan+'title={'+j+' ('+str(len(t))+' bytes, '+str(len(t2))+' lines)}]\n'
                 text+=t
                 text+='\
