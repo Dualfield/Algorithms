@@ -9,7 +9,7 @@ Construct a suffix array and it's height array from a given string using DC3 alg
 \hline
 \multicolumn{2}{|l|}{\bfseries{template<class T,int M,T D>SuffixArray<T,M,D>::SuffixArray(T*s,int n);}}\\
 \hline
-\bfseries{Description} & construct an object of SuffixArray and in the mean time consturct the suffix array and height array\\
+\bfseries{Description} & construct an object of SuffixArray and in the mean time construct the suffix array and height array\\
 \hline
 \bfseries{Parameters} & \bfseries{Description}\\
 \hline

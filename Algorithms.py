@@ -90,7 +90,7 @@ text='\
 \\vspace*{\\fill}\n\
         \\textbf{Algorithms} by Yu Dongfeng\n\
 \n\
-        First version on November 28, 2015\n\
+        First version on April 12, 2013\n\
 \n\
         Latest version on \\today\n\
         \\vspace*{\\fill}\n\
