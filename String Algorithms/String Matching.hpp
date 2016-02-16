@@ -61,7 +61,7 @@ k & start index of the last occurence of the pattern, use zero if there is none\
 \hline
 \bfseries{Problem} & \bfseries{Constraints} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
 \hline
-{POJ P3461} & $\abs{p}=10^4, \abs{t}=10^6$ & 141 ms& 1340 kB & 2016-02-14\\
+{POJ 3461} & $\abs{p}=10^4, \abs{t}=10^6$ & 141 ms& 1340 kB & 2016-02-14\\
 \hline
 \end{tabu}
 
@@ -72,7 +72,7 @@ k & start index of the last occurence of the pattern, use zero if there is none\
 \hline
 \bfseries{Title} & \bfseries{Author}\\
 \hline
-{Fast pattern matching in strings} & Donald E. Knuth, James H. Morris, Vaughan R. Pratt\\
+{Fast Pattern Matching in Strings} & Donald E. Knuth, James H. Morris, Vaughan R. Pratt\\
 \hline
 \end{tabu}
 

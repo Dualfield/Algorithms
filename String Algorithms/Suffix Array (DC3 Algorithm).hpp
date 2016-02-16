@@ -51,7 +51,7 @@ n & length of s\\
 \hline
 \bfseries{Problem} & \bfseries{Constraints} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
 \hline
-{UOJ P35} & $N=10^5, M=26$ & 416 ms (18+ cases) & 4248 kB & 2016-02-14\\
+{UOJ 35} & $N=10^5, M=26$ & 416 ms (18+ cases) & 4248 kB & 2016-02-14\\
 \hline
 \end{tabu}
 

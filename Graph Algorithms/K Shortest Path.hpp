@@ -85,7 +85,7 @@ k & k in 'k shortest path'\\
 \hline
 \bfseries{Problem} & \bfseries{Constraints} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
 \hline
-{JDFZ P2978} & $N=10^4, M=10^5, K=10^4$ & 324 ms& 14968 kB & 2016-02-13\\
+{JDFZ 2978} & $N=10^4, M=10^5, K=10^4$ & 324 ms& 14968 kB & 2016-02-13\\
 \hline
 \end{tabu}
 

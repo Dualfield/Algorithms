@@ -70,7 +70,7 @@ n & length of s\\
 \hline
 \bfseries{Problem} & \bfseries{Constraints} & \bfseries{Time} & \bfseries{Memory} & \bfseries{Date}\\
 \hline
-{Tyvj P1860} & $N=2\times 10^5, M=26$ & 1154 ms (10 cases) & 33012 kB & 2016-02-14\\
+{Tyvj 1860} & $N=2\times 10^5, M=26$ & 1154 ms (10 cases) & 33012 kB & 2016-02-14\\
 \hline
 \end{tabu}
 
@@ -81,9 +81,9 @@ n & length of s\\
 \hline
 \bfseries{Title} & \bfseries{Author}\\
 \hline
-{Factor oracle, suffix oracle} & Cyril Allauzen, Maxime Crochemore, Mathieu Raffinot\\
+{Factor Oracle, Suffix Oracle} & Cyril Allauzen, Maxime Crochemore, Mathieu Raffinot\\
 \hline
-{Computing repeated factors with a factor oracle} & Arnaud Lefebvre, Thierry Lecroq\\
+{Computing Repeated Factors with a Factor Oracle} & Arnaud Lefebvre, Thierry Lecroq\\
 \hline
 \end{tabu}
 
