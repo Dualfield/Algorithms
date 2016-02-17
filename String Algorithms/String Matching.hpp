@@ -46,15 +46,6 @@ k & start index of the last occurence of the pattern, use zero if there is none\
 \end{tabu*}
 
 
-\subsection*{Fields}
-
-\begin{tabu} to \textwidth {|X|X|}
-\hline
-\bfseries{Name} & \bfseries{Description}\\
-\hline
-\end{tabu}
-
-
 \subsection*{Performance}
 
 \begin{tabu} to \textwidth {|X|X|X|X|X|}

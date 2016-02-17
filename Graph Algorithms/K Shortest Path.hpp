@@ -70,14 +70,6 @@ k & k in 'k shortest path'\\
 \end{tabu*}
 
 
-\subsection*{Fields}
-
-\begin{tabu} to \textwidth {|X|X|}
-\hline
-\bfseries{Name} & \bfseries{Description}\\
-\hline
-\end{tabu}
-
 
 \subsection*{Performance}
 

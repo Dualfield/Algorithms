@@ -5,6 +5,7 @@ Construct a suffix array and it's height array from a given string using DC3 alg
 
 
 \subsection*{Methods}
+
 \begin{tabu*} to \textwidth {|X|X|}
 \hline
 \multicolumn{2}{|l|}{\bfseries{template<class T,int M,T D>SuffixArray<T,M,D>::SuffixArray(T*s,int n);}}\\
@@ -36,11 +37,17 @@ n & length of s\\
 
 \begin{tabu} to \textwidth {|X|X|}
 \hline
-\bfseries{Name} & \bfseries{Description}\\
+\multicolumn{2}{|l|}{\bfseries{template<class T,int M,T D>int*SuffixArray<T,M,D>::sa;}}\\
 \hline
-{sa} & suffix array, indexed from one\\
+\bfseries{Description} & suffix array, indexed from one\\
 \hline
-{ht} & height array, indexed from one\\
+\end{tabu}
+
+\begin{tabu} to \textwidth {|X|X|}
+\hline
+\multicolumn{2}{|l|}{\bfseries{template<class T,int M,T D>int*SuffixArray<T,M,D>::ht;}}\\
+\hline
+\bfseries{Description} & height array, indexed from one\\
 \hline
 \end{tabu}
 

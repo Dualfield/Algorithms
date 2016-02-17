@@ -153,6 +153,20 @@ for i in os.listdir():
                 text+='\
 \\addtocontents{toc}{}\n\
 \\section{'+j.split('.')[0]+'}\n'
+                #text+=t3
+                ct=t3.split('\n')
+                ct1=[]
+                ct2=""
+                for ty in ct:
+                    if len(ty)!=0:
+                        ct1.append(ty)
+                for i in range(len(ct1)):
+                    if i+1==len(ct1):
+                        ct2+=ct1[i]+'\n'
+                    elif ct1[i][:11]!='\\subsection':
+                        ct2+=ct1[i]+'\n'
+                    elif ct1[i+1][:11]!='\\subsection':
+                        ct2+=ct1[i]+'\n'
                 text+=t3
                 text+='\\begin{lstlisting}'+lan+'title={'+j+' ('+str(len(t))+' bytes, '+str(len(t2))+' lines)}]\n'
                 text+=t
