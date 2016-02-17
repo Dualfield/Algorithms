@@ -1,19 +1,21 @@
 /*
 \subsection*{Description}
 
-Find the occurrences of a pattern in a text.
+Find the occurrences of a pattern in a text using KMP algorithm. The prefix array is also provided.
 
 \subsection*{Methods}
 
 \begin{tabu*} to \textwidth {|X|X|}
 \hline
-\multicolumn{2}{|l|}{\bfseries{template<class T>StringMatching<T>::StringMatching(T*p);}}\\
+\multicolumn{2}{|l|}{\bfseries{template<class T>StringMatching<T>::StringMatching(T*p,int t=1);}}\\
 \hline
 \bfseries{Description} & construct an object of SuffixMatching for a given pattern\\
 \hline
 \bfseries{Parameters} & \bfseries{Description}\\
 \hline
 T & type of character\\
+\hline
+t & whether to optimize the prefix array, do not turn it on if you want to use the prefix array\\
 \hline
 p & pattern, indexed from one, ended by zero\\
 \hline
@@ -45,6 +47,16 @@ k & start index of the last occurence of the pattern, use zero if there is none\
 \hline
 \end{tabu*}
 
+\subsection*{Fields}
+
+\begin{tabu} to \textwidth {|X|X|}
+\hline
+\multicolumn{2}{|l|}{\bfseries{template<class T>vector<int>StringMatching<T>::f;}}\\
+\hline
+\bfseries{Description} & prefix array of KMP algorithm, indexed from one\\
+\hline
+\end{tabu}
+
 
 \subsection*{Performance}
 
@@ -70,16 +82,16 @@ k & start index of the last occurence of the pattern, use zero if there is none\
 
 \subsection*{Code}
 */
-#include<bits/stdc++.h>
+#include<vector>
 using namespace std;
 template<class T>struct StringMatching{
-    StringMatching(T*p):
+    StringMatching(T*p,int t=1):
         b(2,p[1]),f(2),l(2){
         for(int i=0;p[l]?1:(--l,0);b.push_back(p[l++])){
             for(;i&&p[i+1]!=p[l];i=f[i]);
             f.push_back(i=i+(p[i+1]==p[l]));
         }
-        for(int i=2;i<l;++i)
+        for(int i=2;t&&i<l;++i)
             if(p[f[i]+1]==p[i+1])
                 f[i]=f[f[i]];
     }
