@@ -99,17 +99,17 @@ y & root of another set, use 0 to represent empty set\\
 \hline
 \bfseries{Parameters} & \bfseries{Description}\\
 \hline
-x & root of one set, use 0 to represent empty set\\
+x & root of the set, use 0 to represent empty set\\
 \hline
 ql & start of the range, itself is included\\
 \hline
 qr & end of the range, itself is included\\
 \hline
-\bfseries{Time complexity} & $\Theta(\log \abs{r-l})$\\
+\bfseries{Time complexity} & $O(\log \abs{r-l})$\\
 \hline
-\bfseries{Space complexity} & $\Theta(\log \abs{r-l})$\\
+\bfseries{Space complexity} & $O(\log \abs{r-l})$\\
 \hline
-\bfseries{Return value} & vector of information, if it is empty means no information in that range other wise the result is it's first element\\
+\bfseries{Return value} & vector of information, that it is empty means no information in that range other wise the result is its first element\\
 \hline
 \end{tabu*}
 
@@ -121,7 +121,7 @@ qr & end of the range, itself is included\\
 \hline
 \bfseries{Parameters} & \bfseries{Description}\\
 \hline
-x & root of one set, use 0 to represent empty set\\
+x & root of the set, use 0 to represent empty set\\
 \hline
 \bfseries{Time complexity} & $\Theta(1)$ (amortized)\\
 \hline
