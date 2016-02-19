@@ -60,8 +60,9 @@ namespace HalfPlaneIntersection{
             while(ans.size()>1&&!left(ans[0],ans[1],lns[i]))
                 ans.pop_front();
             if(ans.empty()||fabs(ans.back().a-lns[i].a)>E)
-                ans.push_back(lns[i]);}
-        while(ans.size()>1&&!left(ans[ans.size()-1],ans[ans.size()-2],ans.front()))
+                ans.push_back(lns[i]);
+        }
+        while(ans.size()>1&&!left(ans.back(),ans[ans.size()-2],ans.front()))
             ans.pop_back();
         if(ans.size()<3)
             ans.clear();

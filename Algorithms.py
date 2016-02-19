@@ -100,7 +100,15 @@ text='\
 \\pdfbookmark[section]{\\contentsname}{toc}\n\
 \\tableofcontents\n\
 \\newpage\n'
-for i in os.listdir():
+uu2=os.listdir()
+uu=[]
+for i in uu2:
+    if os.path.isdir(i)and i!='.git':
+        uu.append(i)
+tu=uu[3]
+uu[3]=uu[6]
+uu[6]=tu
+for i in uu:
     if os.path.isdir(i)and i!='.git':
         text+='\
 \\chapter{'+i+'}\n\
